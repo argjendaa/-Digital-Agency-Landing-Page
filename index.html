@@ -193,6 +193,76 @@
   </div>
 </section>
 
+<!--PROTOFOLIO SECTION-->
+<section class="portofolio" id="portofolio">
+  <div class="section-header">
+    <span class="label">Punët Tona</span>
+    <h2>Portofolio</h2>
+    <p>Disa nga projektet tona të fundit.</p>
+  </div>
+
+  <!--Butonat e filtrit-->
+<div class="portofolio-filters">
+  <!--data-filter-JS filtron sipas ksaj vlere-->
+  <button class="filter-btn" data-filter="web">Web</button>
+  <button class="filter-btn" data-filter="mobile">Mobile</button>
+  <button class="filter-btn" data-filter="design">Design</button>
+</div>
+<!--gridin e projekteve-->
+<div class="portofolio-grid" id="portofolioGrid">
+  <!--Projekt 1-->
+<div class="portofolio-card" data-category="web" onclick="openModal(0)">
+  <!--data-cateogory=web - filtri e lexon kete-->
+  <!--onclick="openModal(0)"- hap modal me indeks 0-->
+  <div class="portofolio-img p1">
+    <div class="portofolio-overlay">
+      <button class="btn-primary">Shiko Detajet</button>
+    </div>
+  </div>
+  <div class="portofolio-info">
+    <span>E-Commerce • Web</span>
+    <h3>Fashion Store</h3>
+  </div>
+</div>
+
+<div class="portofolio-card" data-category="web design" onclick="openModal(1)">
+  <div class="portofolio-img p2">
+    <div class="portofolio-oberlay"> 
+      <button class="btn-primary">Shiko Detajet</button>
+    </div>
+  </div>
+  <div class="portofolio-info">
+    <span>Restaurant • Web </span>
+    <h3>Gustavo Restaurant</h3>
+  </div>
+</div>
+
+<div class="portofolio-card" data-category="design" onclick="openModal(2)">
+  <div class="portofolio-img p3">
+    <div class="portofolio-overlay">
+      <button class="btn-primary">Shiko Detajet</button>
+    </div>
+  </div>
+
+  <div class="portofolio-info">
+    <span> Dashboard • Design</span>
+    <h3>Analytics Dashboard</h3>
+  </div>
+</div>
+
+<div class="portofolio-card" data-category="mobile" onclick="openModal(3)">
+  <div class="portofolio-img p4">
+    <div class="portofolio-overlay">
+      <button class="btn-primary"> Shiko Detajet</button>
+  </div>
+</div>
+<div class="portofolio-info">
+  <span> Mobile • Design</span>
+  <h3> Fitness App</h3>
+</div>
+</div>
+</section>
+<!--TESTIMONIALS SECTION-->
 
 </body>
 </html>
