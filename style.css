@@ -99,3 +99,286 @@
   margin:0 auto;
   padding: 0 24px;
 }
+
+/* seksionet -hapsire standarde*/
+section{
+  padding:80px;
+  max-width:var(--max-w);
+  margin:auto;
+  text-align:center;
+  
+}
+
+
+section h2{
+  font-size:2.2rem;
+  margin:8px 0 12px;
+  color:var(--text);
+}
+
+p {
+  color:var(--text-soft);
+  max-width:500px;
+  margin: 0 auto;
+}
+
+
+.label{
+  display:inline-block;
+  font-size:0.75rem;
+  font-weight:600;
+  letter-spacing:0.1rem;
+  text-transform:uppercase;
+  color:var(--primary);
+  background:rgba(99,102,241,0.1);
+  padding:4px 14px;
+  border-radius:999px;
+}
+
+
+.label.light{
+  color:rgba(255,255,255,0.8);
+  background:rgba(255,255,255,0.15);
+}
+  /*fjala r theksuar me ngjyre*/
+  .hightlight{
+    color:var(--primary);
+    position:relative;
+  }
+
+  /* ==============================
+   BUTONAT
+   ============================== */
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 24px;
+  background:var(--primary);
+  color:white;
+  border:none;
+  border-radius:10px;
+  font-size:0.9rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:all var(--tr);
+  text-decoration:none;
+
+}
+
+
+.btn-primary:hover{
+  background:var(--primary-dark);
+  transform:translateY(-2px);/*ngrihet lart per -2px*/
+  box-shadow:0 7px 8px rgba(99,102,241,0.35);
+}
+
+
+.btn-ghost {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 12px 24px;
+  background:transparent;
+  color:var(--primary);
+  border:2px solid var(--primary);
+  border-radius:10px;
+  font-size:0.9rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:all var(--tr);
+  text-decoration:none;
+}
+
+.btn-ghost:hover{
+  background:var(--primary);
+  color:white;
+  transform:translateY(-2px);
+  box-shadow: 0 7px 8px rgba(99,102,241,0.35);
+}
+
+/* ==============================
+   NAVBAR
+   ============================== */
+.navbar{
+  position:fixed;/*fiksohet lard edhe nese shkon scroll posht*/
+  top:0;
+  left:0;
+  right:0;
+  z-index:1000;
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 40px;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(10px);/*Efekti frosted glass*/
+  border-bottom: 1px solid var(--border);
+  transition:all var(--tr);
+}
+
+/*dark mode navbar*/
+
+body.dark.navbar {
+  background:rgba(15,23,42,0.9);
+}
+ 
+
+/* Navbar kur scrollon (JS shton klasën) */
+.navbar.scrolled{
+  box-shadow:var(--shadow);
+}
+
+/*logo*/
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:1.2rem;
+  font-weight:700;
+  color:var(--text);
+}
+
+.nav-logo i{
+  color:var(--primary);
+  font-size:1.3rem;
+}
+
+/* Linket e navigimit */
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+
+.nav-links a{
+ padding:6px 14px;
+ border-radius:8px;
+ color:var(--text-soft);
+ font-size:0,9rem;
+ font-weight:500;
+ transition:all var(--tr);
+}
+
+.nav-links a:hover{
+  color: var(--primary);
+  background: rgba(99,102,241,0.08);
+}
+
+/* Ana e djathtë e navbar-it */
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* Butoni dark mode */
+#darkbtn{
+  width:38px;
+  height:38px;
+  border-radius:8px;
+  background: var(--bg3);
+  border:1px solid var(--border);
+  color:var(--text-soft);
+  font-size:0.9rem;
+  cursor:poiner;
+  transition:all var(--tr);
+}
+
+#darkBtn:hover {
+  background:var(--primary);
+  color:white;
+  border-color:var(--primary);
+}
+
+/* Hamburger - vetëm mobile */
+.hamburger{
+  display:none;
+  flex-direction: column;
+  gap:5px;
+  width:36px;
+  height:36px;
+  align-items:center;
+  justify-content:center;
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  display: block;
+  width:18px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition:all var(--tr);
+}
+
+/* Animacioni X kur menuja hapet */
+.hamburger.open span:nth-child(1){
+  transform:translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2){
+  opacity:0;/*fshihet linja e mesit*/
+}
+
+.hamburger.open span:nth-child(3){
+  transform:translateY(-7px)rotate(-45deg);
+}
+
+
+/* ==============================
+   HERO SECTION
+   ============================== */
+.hero{
+  min-height:100vh;
+  padding-top:120px;
+  display:flex;
+  align-items:center;
+  gap:60px;
+  max-width:var(--max-w);
+  margin:0 auto;
+  padding-left:0 24px 0 24px;
+  padding-bottom:60px;
+  
+}
+
+.hero-text{
+  flex:1;
+}
+
+.hero-text h1{
+  font-size:3rem;
+  line-height:1.15;
+  margin-bottom:16px;
+  color:var(--text);
+}
+
+.hero-text p{
+  font-size:1.1rem;
+  color:var(--text-soft);
+  margin-bottom:32px;
+  max-width:460px;
+}
+
+.hero-btns{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;/* Kalon në rresht tjetër në mobile */
+}
+
+
+/*ilustrimi i djatht*/
+.hero-image{
+  flex:1;
+  max-width:480px;
+  animation:foat 4s ease-in-out infinite;
+
+}
+
+@keyframes float{
+  0%, 100%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+}
