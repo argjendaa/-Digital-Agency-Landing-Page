@@ -78,3 +78,18 @@
     text-decoration:none;
     color:inherit;/*trashegon ngjyren*/
    }
+
+   ul{
+    list-style:none;/*pa pik liste*/
+   }
+
+   img{
+    max-width:100%; 
+    display:block;
+   }
+
+
+   /* ==============================
+   UTILITY CLASSES
+   ============================== */
+/*container kryesore*/
