@@ -1,0 +1,80 @@
+:root {
+  /* Ngjyrat kryesore */
+  --primary: #6366f1;       /* Indigo - ngjyra kryesore */
+  --primary-dark: #4f46e5;  /* Varianti i errët për hover */
+  --accent: #f59e0b;        /* Amber - ngjyra sekondare */
+
+  /* Teksti - Light Mode */
+  --text: #111827;
+  --text-soft: #6b7280;
+  --text-light: #9ca3af;
+
+  /* Sfondet - Light Mode */
+  --bg: #ffffff;
+  --bg2: #f9fafb;
+  --bg3: #f3f4f6;
+
+  /* Kufiri */
+  --border: #e5e7eb;
+
+  /* Hija */
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+
+  /* Tranzicioni */
+  --tr: 0.3s ease;
+
+  /* Gjerësia maksimale */
+  --max-w: 1200px;
+}
+
+/* ==============================
+   DARK MODE
+   Klasa vendoset në body nga JS
+   ============================== */
+
+ body.dark {
+  --text: #f1f5f9;
+  --text-soft: #94a3b8;
+  --text-light: #64748b;
+  --bg: #0f172a;      /* Background kryesor - blu e errët */
+  --bg2: #1e293b;     /* Background dytësor */
+  --bg3: #334155;     /* Background tretësor */
+  --border: #334155;
+  --shadow: 0 4px 20px rgba(0,0,0,0.3);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+
+/* ==============================
+   RESET - Heq stilet default
+   ============================== */
+
+   *,*::before, *::after{
+    box-sizing:border-box; /* padding brenda*/
+    margin:0;
+    padding:0;
+   }
+
+
+
+   html{
+    scroll-behavior:smooth;/*scroll i bute per anchors*/
+   }
+
+   body{
+    font-family:'Segoe UI', Arial, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    color:var(--text);
+    background:var(--bg);
+    transition:background var(--tr), color var(--tr);
+    /*tranzicion kur ndryshon dark/light*/
+    overflow-x:hidden;/*pa scroll horizontal*/
+   }
+
+
+   a{
+    text-decoration:none;
+    color:inherit;/*trashegon ngjyren*/
+   }
