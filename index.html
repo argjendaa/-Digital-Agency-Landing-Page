@@ -1,232 +1,209 @@
-<!DOCTYPE html>
-<html lang="sq">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pixelforge — Agjenci Digjitale</title>
+<!DOCTYPE html>                                            <!-- i thotë browser-it që kjo është HTML5 -->
+<html lang="sq">                                            <!-- gjuha e faqes = shqip -->
+<head>                                                       <!-- pjesa e padukshme: metadata, fonte, CSS -->
+<meta charset="UTF-8">                                        <!-- lejon shkronjat ë, ç të shfaqen saktë -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- e bën faqen responsive në telefon -->
+<title>Pixelforge — Agjenci Digjitale</title>                    <!-- titulli në tab-in e browser-it -->
+<link rel="preconnect" href="https://fonts.googleapis.com">        <!-- lidhet më shpejt me Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">  <!-- ngarkon 2 fontet e faqes -->
+<link rel="stylesheet" href="style.css">                           <!-- lidh skedarin CSS -->
+</head>                                                               <!-- mbyllje e head -->
+<body>                                                                  <!-- fillon përmbajtja e dukshme -->
 
-<!-- Fontet nga Google Fonts: Space Grotesk (titujt), Inter (teksti), JetBrains Mono (etiketat "// ...") -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">                                       <!-- menuja lart; id s'i duhet JS-së këtu, por e lëmë për qartësi -->
+  <div class="container navbar-inner">                                      <!-- wrapper që qendërzon logo/linqe/hamburger -->
+    <a href="#" class="logo">Pixelforge<span class="dot">.</span></a>          <!-- logo; span.dot merr ngjyrë aksent nga CSS -->
 
-<!-- style.css përmban të gjitha ngjyrat, fontet dhe layout-in. Pa këtë skedar faqja duket pa stil fare. -->
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <nav class="nav-links" id="navLinks">                                        <!-- id="navLinks" lexohet nga script.js (pika 1) -->
+      <a href="#home">Kryefaqja</a>                                                 <!-- shkon te <section id="home"> poshtë -->
+      <a href="#services">Shërbimet</a>                                               <!-- shkon te <section id="services"> -->
+      <a href="#about">Rreth Nesh</a>                                                   <!-- shkon te <section id="about"> -->
+      <a href="#portfolio">Portfolio</a>                                                  <!-- shkon te <section id="portfolio"> -->
+      <a href="#testimonials">Klientët</a>                                                  <!-- shkon te <section id="testimonials"> -->
+      <a href="#contact">Kontakt</a>                                                          <!-- shkon te <section id="contact"> -->
+    </nav>                                                                                       <!-- mbyllje e nav -->
 
-<!-- =========================================================
-     NAVBAR — menuja fikse në krye të faqes
-     - id="navbar" përdoret nga script.js (initNavbar) për t'i
-       shtuar klasën "scrolled" kur useri bën scroll poshtë
-     - id="navLinks" hapet/mbyllet nga script.js në mobile
-     - id="themeToggle" ndërron temën dark/light nga script.js
-========================================================== -->
-<header class="navbar" id="navbar">
-  <div class="container navbar-inner">
+    <button class="hamburger" id="hamburger" aria-label="Hap menunë">                              <!-- id="hamburger" lexohet nga script.js -->
+      <span></span><span></span><span></span>                                                        <!-- 3 vijat e ikonës, stilizuar me CSS -->
+    </button>                                                                                           <!-- mbyllje e hamburger -->
+  </div>                                                                                                   <!-- mbyllje e navbar-inner -->
+</header>                                                                                                     <!-- mbyllje e navbar -->
 
-    <!-- Logo i faqes. Pika ".dot" merr ngjyrën aksent nga CSS -->
-    <a href="#" class="logo">Pixelforge<span class="dot">.</span></a>
+<!-- HERO -->
+<section class="hero" id="home">                                              <!-- seksioni hyrës; id="home" përputhet me href="#home" -->
+  <div class="container">                                                        <!-- wrapper standard -->
+    <p class="eyebrow">// agjenci digjitale, 2019 — sot</p>                          <!-- etiketë e vogël mbi titull -->
+    <h1>Ndërtojmë marka që <span class="highlight">duken mirë</span> dhe funksionojnë ende më mirë.</h1>  <!-- titulli kryesor -->
+    <p class="hero-text">Jemi një studio e vogël krijuese që ndihmon biznese, startup-e dhe brande në ndërtimin e prezencës së tyre dixhitale — nga dizajni deri te kodi.</p>  <!-- paragraf shpjegues -->
+    <div class="hero-actions">                                                       <!-- wrapper i 2 butonave -->
+      <a href="#contact" class="btn btn-primary">Fillo një projekt</a>                   <!-- buton kryesor, shkon te Kontakt -->
+      <a href="#portfolio" class="btn btn-ghost">Shiko punët tona</a>                      <!-- buton dytësor, shkon te Portfolio -->
+    </div>                                                                                    <!-- mbyllje e hero-actions -->
+  </div>                                                                                          <!-- mbyllje e container -->
+</section>                                                                                            <!-- mbyllje e hero -->
 
-    <!-- Linqet e navigimit. Çdo href="#id" shkon te seksioni me atë id më poshtë.
-         Scroll-i i butë (smooth) vjen nga CSS: html { scroll-behavior: smooth; } -->
-    <nav class="nav-links" id="navLinks">
-      <a href="#home" class="nav-link active">Kryefaqja</a>
-      <a href="#services" class="nav-link">Shërbimet</a>
-      <a href="#about" class="nav-link">Rreth Nesh</a>
-      <a href="#portfolio" class="nav-link">Portfolio</a>
-      <a href="#testimonials" class="nav-link">Klientët</a>
-      <a href="#contact" class="nav-link">Kontakt</a>
-    </nav>
-
-    <div class="navbar-actions">
-      <!-- Butoni për temën. Të dy ikonat (hënë/diell) qëndrojnë në HTML,
-           script.js thjesht fsheh/shfaq njërën me style.display -->
-      <button class="theme-toggle" id="themeToggle" aria-label="Ndrysho temën">
-        <svg id="iconMoon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
-        <svg id="iconSun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-      </button>
-
-      <!-- Hamburger — shfaqet vetëm në mobile (shiko media query në CSS).
-           script.js i shton klasën "open" navLinks kur klikohet. -->
-      <button class="hamburger" id="hamburger" aria-label="Hap menunë">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<!-- =========================================================
-     HERO — pjesa e parë që sheh useri, prezanton agjencinë
-     - klasa "reveal" bën që elementët të "shfaqen" me animacion
-       kur hyjnë në ekran (shiko initScrollReveal në script.js)
-========================================================== -->
-<section class="hero" id="home">
-  <div class="container hero-inner">
-    <p class="eyebrow reveal">// agjenci digjitale, 2019 — sot</p>
-    <h1 class="reveal">Ndërtojmë marka që <span class="highlight">duken mirë</span> dhe <span class="highlight">funksionojnë</span> ende më mirë.</h1>
-    <p class="hero-text reveal">Jemi një studio e vogël krijuese që ndihmon biznese, startup-e dhe brande në ndërtimin e prezencës së tyre dixhitale — nga dizajni deri te kodi.</p>
-    <div class="hero-actions reveal">
-      <a href="#contact" class="btn btn-primary">Fillo një projekt</a>
-      <a href="#portfolio" class="btn btn-ghost">Shiko punët tona</a>
-    </div>
-  </div>
-</section>
-
-<!-- =========================================================
-     SHËRBIMET — 4 karta statike, shkruar direkt në HTML
-     sepse janë fikse dhe nuk ndryshojnë (ndryshe nga portfolio,
-     që gjenerohet me JS sepse ka filtrim)
-========================================================== -->
-<section class="section" id="services">
+<!-- SHËRBIMET -->
+<section class="section" id="services">                                       <!-- id="services" përputhet me href="#services" -->
   <div class="container">
     <p class="eyebrow">// shërbimet</p>
     <h2>Çfarë ofrojmë</h2>
 
-    <div class="grid services-grid">
-      <div class="card reveal">
-        <div class="icon-box">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
-        </div>
-        <h3>Web Design</h3>
-        <p>Dizajnojmë website moderne, të pastra dhe të përshtatura me identitetin e markës suaj.</p>
-      </div>
-
-      <div class="card reveal">
-        <div class="icon-box">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
+    <div class="grid services-grid">                                             <!-- CSS Grid me 4 kolona (shiko style.css) -->
+      <div class="card">                                                            <!-- karta 1 -->
+        <h3>Web Design</h3>                                                            <!-- titulli i shërbimit -->
+        <p>Dizajnojmë website moderne, të pastra dhe të përshtatura me identitetin e markës suaj.</p>  <!-- përshkrimi -->
+      </div>                                                                              <!-- mbyllje e kartës 1 -->
+      <div class="card">                                                            <!-- karta 2 -->
         <h3>Zhvillim Front-End</h3>
         <p>Kodojmë ndërfaqe të shpejta, responsive dhe të optimizuara për çdo pajisje.</p>
-      </div>
-
-      <div class="card reveal">
-        <div class="icon-box">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg>
-        </div>
+      </div>                                                                              <!-- mbyllje e kartës 2 -->
+      <div class="card">                                                            <!-- karta 3 -->
         <h3>Branding</h3>
         <p>Ndërtojmë identitet vizual — logo, paletë ngjyrash dhe udhëzime të markës.</p>
-      </div>
-
-      <div class="card reveal">
-        <div class="icon-box">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
-        </div>
+      </div>                                                                              <!-- mbyllje e kartës 3 -->
+      <div class="card">                                                            <!-- karta 4 -->
         <h3>SEO & Marketing</h3>
         <p>Optimizojmë praninë tuaj online për t'u gjetur më lehtë nga klientët e duhur.</p>
-      </div>
-    </div>
+      </div>                                                                              <!-- mbyllje e kartës 4 -->
+    </div>                                                                                  <!-- mbyllje e services-grid -->
   </div>
-</section>
+</section>                                                                                      <!-- mbyllje e seksionit services -->
 
-<!-- =========================================================
-     RRETH NESH — tekst + statistika me numërues të animuar
-     - "data-target" në secilin numër i thotë script.js deri
-       ku duhet të numërojë (shiko initCounters)
-     - numrat fillojnë nga 0 në HTML dhe JS i "mbush" kur
-       hyjnë në ekran, jo kur ngarkohet faqja
-========================================================== -->
-<section class="section alt" id="about">
-  <div class="container about-inner">
-    <div class="about-text reveal">
+<!-- RRETH NESH -->
+<section class="section alt" id="about">                                      <!-- "alt" = sfond i ndryshëm (shiko .section.alt në CSS) -->
+  <div class="container about-inner">                                            <!-- CSS Grid: tekst majtas, statistika djathtas -->
+    <div>                                                                           <!-- kolona e tekstit -->
       <p class="eyebrow">// rreth nesh</p>
       <h2>Studio e vogël, mendësi e madhe.</h2>
       <p>Pixelforge lindi nga ideja se çdo biznes, sado i vogël, meriton një prezencë dixhitale profesionale. Që nga 2019, kemi punuar me dhjetëra klientë për të kthyer idetë e tyre në produkte reale.</p>
-      <div class="mission-vision">
-        <div>
+      <div class="mission-vision">                                                    <!-- 2 kolona: Misioni + Vizioni -->
+        <div>                                                                            <!-- blloku i Misionit -->
           <h4>Misioni</h4>
           <p>T'i japim çdo klienti një website që reflekton vlerën e vërtetë të biznesit të tij.</p>
-        </div>
-        <div>
+        </div>                                                                             <!-- mbyllje e Misionit -->
+        <div>                                                                                <!-- blloku i Vizionit -->
           <h4>Vizioni</h4>
           <p>Të bëhemi studioja e preferuar për biznese që duan cilësi, jo shkurtore.</p>
-        </div>
-      </div>
-    </div>
+        </div>                                                                                 <!-- mbyllje e Vizionit -->
+      </div>                                                                                     <!-- mbyllje e mission-vision -->
+    </div>                                                                                          <!-- mbyllje e kolonës së tekstit -->
 
-    <div class="stats-grid">
-      <div class="stat-card reveal">
-        <span class="stat-number" data-target="120">0</span>
-        <span class="stat-label">Projekte të Përfunduara</span>
-      </div>
-      <div class="stat-card reveal">
-        <span class="stat-number" data-target="95">0</span>
+  
+    <div class="stats-grid">                                                                          <!-- CSS Grid 2x2 -->
+      <div class="stat-card">                                                                            <!-- statistika 1 -->
+        <span class="stat-number" data-target="120">120</span>                                              <!-- numri i dukshëm që në HTML -->
+        <span class="stat-label">Projekte të Përfunduara</span>                                                <!-- etiketa poshtë -->
+      </div>                                                                                                     <!-- mbyllje e statistikës 1 -->
+      <div class="stat-card">                                                                                       <!-- statistika 2 -->
+        <span class="stat-number" data-target="95">95</span>
         <span class="stat-label">Klientë të Kënaqur</span>
       </div>
-      <div class="stat-card reveal">
-        <span class="stat-number" data-target="6">0</span>
+      <div class="stat-card">                                                                                       <!-- statistika 3 -->
+        <span class="stat-number" data-target="6">6</span>
         <span class="stat-label">Vite Eksperiencë</span>
       </div>
-      <div class="stat-card reveal">
-        <span class="stat-number" data-target="98">0</span>
+      <div class="stat-card">                                                                                       <!-- statistika 4 -->
+        <span class="stat-number" data-target="98">98</span>
         <span class="stat-label">% Kënaqësi Klientësh</span>
       </div>
-    </div>
-  </div>
-</section>
+    </div>                                                                                                             <!-- mbyllje e stats-grid -->
+  </div>                                                                                                                  <!-- mbyllje e about-inner -->
+</section>                                                                                                                   <!-- mbyllje e seksionit about -->
 
-<!-- =========================================================
-     PORTFOLIO — vetëm skeleti është këtu, kartat mbushen nga JS
-     - id="portfolioGrid" fillon si <div> bosh, script.js e mbush
-       me kartat nga lista "projects" (shiko initPortfolio)
-     - butonat "data-filter" i thonë JS-së cilën kategori të shfaqë
-     - kjo bëhet me JS (jo direkt HTML) sepse filtrimi kërkon
-       të fshehim/shfaqim karta pa ringarkuar faqen
-========================================================== -->
-<section class="section" id="portfolio">
+<!-- PORTFOLIO — kartat janë të shkruara plotësisht në HTML.
+     script.js (pika 2) vetëm i fsheh/shfaq sipas "data-category". -->
+<section class="section" id="portfolio">                                      <!-- id="portfolio" përputhet me href="#portfolio" -->
   <div class="container">
     <p class="eyebrow">// portfolio</p>
     <h2>Punët tona të fundit</h2>
 
-    <div class="filters">
-      <button class="filter-btn active" data-filter="all">Të gjitha</button>
-      <button class="filter-btn" data-filter="web">Web</button>
-      <button class="filter-btn" data-filter="branding">Branding</button>
-      <button class="filter-btn" data-filter="app">Aplikacione</button>
-    </div>
+    <div class="filters">                                                        <!-- 4 butona filtri -->
+      <button class="filter-btn active" data-filter="all">Të gjitha</button>         <!-- "active" fillestare; data-filter lexohet nga JS -->
+      <button class="filter-btn" data-filter="web">Web</button>                        <!-- filtron te kartat me data-category="web" -->
+      <button class="filter-btn" data-filter="branding">Branding</button>                <!-- filtron te data-category="branding" -->
+      <button class="filter-btn" data-filter="app">Aplikacione</button>                    <!-- filtron te data-category="app" -->
+    </div>                                                                                   <!-- mbyllje e filters -->
 
-    <!-- I zbrazët me qëllim — script.js e mbush me innerHTML -->
-    <div class="grid portfolio-grid" id="portfolioGrid"></div>
+    <div class="grid portfolio-grid" id="portfolioGrid">                                       <!-- id lexohet vetëm si referencë, kartat janë poshtë -->
+
+      <div class="portfolio-card" data-category="web">                                            <!-- karta 1; data-category lexohet nga script.js -->
+        <div class="portfolio-thumb thumb-1">NovaStyle Boutique</div>                                <!-- .thumb-1 i jep ngjyrë nga CSS, jo nga JS -->
+        <div class="portfolio-body">                                                                   <!-- pjesa e poshtme e kartës -->
+          <span class="portfolio-tag">web</span>                                                           <!-- etiketa e kategorisë, shkruar direkt -->
+          <h3>NovaStyle Boutique</h3>                                                                        <!-- titulli i projektit -->
+          <p>Website e-commerce për një butik modë me pagesa online dhe katalog dinamik.</p>                   <!-- përshkrimi, direkt në HTML -->
+        </div>                                                                                                   <!-- mbyllje e portfolio-body -->
+      </div>                                                                                                       <!-- mbyllje e kartës 1 -->
+
+      <div class="portfolio-card" data-category="app">                                            <!-- karta 2 -->
+        <div class="portfolio-thumb thumb-2">FreshCart App</div>
+        <div class="portfolio-body">
+          <span class="portfolio-tag">app</span>
+          <h3>FreshCart App</h3>
+          <p>Aplikacion mobil për porosi ushqimesh me ndjekje të porosisë në kohë reale.</p>
+        </div>
+      </div>                                                                                                       <!-- mbyllje e kartës 2 -->
+
+      <div class="portfolio-card" data-category="web">                                            <!-- karta 3 -->
+        <div class="portfolio-thumb thumb-3">Krasniqi Constructions</div>
+        <div class="portfolio-body">
+          <span class="portfolio-tag">web</span>
+          <h3>Krasniqi Constructions</h3>
+          <p>Landing page korporative me portofol projektesh dhe formular ofertash.</p>
+        </div>
+      </div>                                                                                                       <!-- mbyllje e kartës 3 -->
+
+      <div class="portfolio-card" data-category="branding">                                       <!-- karta 4 -->
+        <div class="portfolio-thumb thumb-4">Lumen Identity</div>
+        <div class="portfolio-body">
+          <span class="portfolio-tag">branding</span>
+          <h3>Lumen Identity</h3>
+          <p>Identitet i plotë vizual — logo, paletë ngjyrash dhe udhëzime marke.</p>
+        </div>
+      </div>                                                                                                       <!-- mbyllje e kartës 4 -->
+
+      <div class="portfolio-card" data-category="app">                                            <!-- karta 5 -->
+        <div class="portfolio-thumb thumb-5">Orbit Finance</div>
+        <div class="portfolio-body">
+          <span class="portfolio-tag">app</span>
+          <h3>Orbit Finance</h3>
+          <p>Ndërfaqe aplikacioni për menaxhim financash personale.</p>
+        </div>
+      </div>                                                                                                       <!-- mbyllje e kartës 5 -->
+
+      <div class="portfolio-card" data-category="branding">                                       <!-- karta 6 -->
+        <div class="portfolio-thumb thumb-6">Terra Coffee Rebrand</div>
+        <div class="portfolio-body">
+          <span class="portfolio-tag">branding</span>
+          <h3>Terra Coffee Rebrand</h3>
+          <p>Rebranding i plotë për një zinxhir kafenesh lokale.</p>
+        </div>
+      </div>                                                                                                       <!-- mbyllje e kartës 6 -->
+
+    </div>                                                                                                            <!-- mbyllje e portfolio-grid -->
   </div>
-</section>
+</section>                                                                                                                <!-- mbyllje e seksionit portfolio -->
 
-<!-- =========================================================
-     MODAL — dritarja që hapet kur klikohet një kartë portfolio
-     - qëndron e fshehur (opacity: 0 në CSS) derisa script.js
-       i shton klasën "open" te #modalOverlay
-     - id-të (modalThumb, modalTitle, modalDesc...) mbushen
-       me të dhënat e projektit të klikuar
-========================================================== -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal">
-    <button class="modal-close" id="modalClose" aria-label="Mbyll">&times;</button>
-    <div class="modal-thumb" id="modalThumb"></div>
-    <span class="modal-tag" id="modalTag"></span>
-    <h3 id="modalTitle"></h3>
-    <p id="modalDesc"></p>
-  </div>
-</div>
-
-<!-- =========================================================
-     TESTIMONIALE — statike, 3 karta fikse (nuk kanë nevojë për JS)
-========================================================== -->
-<section class="section alt" id="testimonials">
+<!-- TESTIMONIALE — statike, s'ka nevojë për JS fare -->
+<section class="section alt" id="testimonials">                               <!-- id="testimonials" përputhet me href -->
   <div class="container">
     <p class="eyebrow">// klientët</p>
     <h2>Çfarë thonë klientët</h2>
 
-    <div class="grid testimonials-grid">
-      <div class="testimonial-card reveal">
-        <p>"Pixelforge e kuptoi vizionin tonë që në takimin e parë. Website-i i ri na rriti kërkesat për oferta me 40%."</p>
-        <div class="testimonial-author">
-          <div class="avatar">A</div>
+    <div class="grid testimonials-grid">                                          <!-- CSS Grid 3 kolona -->
+      <div class="testimonial-card">                                                <!-- testimoniali 1 -->
+        <p>"Pixelforge e kuptoi vizionin tonë që në takimin e parë. Website-i i ri na rriti kërkesat për oferta me 40%."</p>  <!-- citimi -->
+        <div class="testimonial-author">                                               <!-- avatar + emër + pozicion -->
+          <div class="avatar">A</div>                                                     <!-- rreth me shkronjën e parë -->
           <div>
-            <strong>Arben Krasniqi</strong>
-            <span>Themelues, Krasniqi Constructions</span>
+            <strong>Arben Krasniqi</strong>                                                  <!-- emri i plotë -->
+            <span>Themelues, Krasniqi Constructions</span>                                     <!-- pozicioni/kompania -->
           </div>
         </div>
-      </div>
+      </div>                                                                                     <!-- mbyllje e testimonialit 1 -->
 
-      <div class="testimonial-card reveal">
+      <div class="testimonial-card">                                                <!-- testimoniali 2 -->
         <p>"Komunikim i shpejtë, dizajn i pastër dhe respektim i afateve. Do të punonim përsëri pa hezitim."</p>
         <div class="testimonial-author">
           <div class="avatar">L</div>
@@ -235,10 +212,10 @@
             <span>Marketing Manager, NovaStyle</span>
           </div>
         </div>
-      </div>
+      </div>                                                                                     <!-- mbyllje e testimonialit 2 -->
 
-      <div class="testimonial-card reveal">
-        <p>"Ekipi e ktheu idenë tonë të thjeshtë në një aplikacion që klientët tanë e duan dhe e besojnë çdo ditë."</p>
+      <div class="testimonial-card">                                                <!-- testimoniali 3 -->
+        <p>"Ekipi e ktheu idenë tonë të thjeshtë në një aplikacion që klientët tanë e duan çdo ditë."</p>
         <div class="testimonial-author">
           <div class="avatar">D</div>
           <div>
@@ -246,103 +223,84 @@
             <span>CEO, FreshCart</span>
           </div>
         </div>
-      </div>
-    </div>
+      </div>                                                                                     <!-- mbyllje e testimonialit 3 -->
+    </div>                                                                                          <!-- mbyllje e testimonials-grid -->
   </div>
-</section>
+</section>                                                                                              <!-- mbyllje e seksionit testimonials -->
 
-<!-- =========================================================
-     KONTAKT — formular që validohet me JS përpara se të "dërgohet"
-     - çdo input ka nga një <span class="error-msg"> poshtë tij,
-       ku script.js shkruan mesazhin e gabimit nëse fusha s'është e saktë
-     - id="formSuccess" fshihet me CSS (display:none) dhe shfaqet
-       vetëm kur JS i shton klasën "show" pas dërgimit të suksesshëm
-     - "novalidate" hiqet validimi automatik i browser-it sepse
-       validimin e bëjmë vetë me JS (initContactForm)
-========================================================== -->
-<section class="section" id="contact">
-  <div class="container contact-inner">
-    <div class="contact-info reveal">
+<!-- KONTAKT -->
+<section class="section" id="contact">                                        <!-- id="contact" përputhet me href -->
+  <div class="container contact-inner">                                          <!-- CSS Grid: info majtas, formular djathtas -->
+    <div>                                                                           <!-- kolona e informacionit -->
       <p class="eyebrow">// kontakt</p>
       <h2>Le të flasim për projektin tuaj</h2>
       <p>Na shkruani pak fjalë për idenë tuaj — ju përgjigjemi brenda 24 orëve.</p>
-      <ul class="contact-list">
-        <li><strong>Email:</strong> hello@pixelforge.studio</li>
-        <li><strong>Telefon:</strong> +383 44 000 000</li>
-        <li><strong>Adresa:</strong> Prishtinë, Kosovë</li>
+      <ul class="contact-list">                                                       <!-- lista e detajeve -->
+        <li><strong>Email:</strong> hello@pixelforge.studio</li>                         <!-- email-i i kompanisë -->
+        <li><strong>Telefon:</strong> +383 44 000 000</li>                                <!-- numri i telefonit -->
+        <li><strong>Adresa:</strong> Prishtinë, Kosovë</li>                                 <!-- adresa fizike -->
       </ul>
-    </div>
+    </div>                                                                                    <!-- mbyllje e kolonës së informacionit -->
 
-    <form class="contact-form" id="contactForm" novalidate>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="name">Emri</label>
-          <input type="text" id="name" name="name" placeholder="Emri juaj">
-          <span class="error-msg" id="nameError"></span>
-        </div>
-        <div class="form-group">
+    <form class="contact-form" id="contactForm">                                          <!-- id="contactForm" lexohet nga script.js -->
+      <div class="form-row">                                                                 <!-- 2 fusha krah për krah -->
+        <div class="form-group">                                                                <!-- wrapper i "Emri" -->
+          <label for="name">Emri</label>                                                           <!-- for="name" lidh label-in me input-in -->
+          <input type="text" id="name" placeholder="Emri juaj">                                       <!-- id="name" lexohet nga funksioni checkNotEmpty -->
+          <span class="error-msg" id="nameError"></span>                                                <!-- bosh; JS shkruan gabimin këtu nëse duhet -->
+        </div>                                                                                            <!-- mbyllje e "Emri" -->
+        <div class="form-group">                                                                             <!-- wrapper i "Email" -->
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="emri@shembull.com">
+          <input type="email" id="email" placeholder="emri@shembull.com">                                       <!-- type="email" ndihmon tastierën në mobile -->
           <span class="error-msg" id="emailError"></span>
-        </div>
-      </div>
-      <div class="form-group">
+        </div>                                                                                                     <!-- mbyllje e "Email" -->
+      </div>                                                                                                          <!-- mbyllje e form-row -->
+      <div class="form-group">                                                                                          <!-- wrapper i "Subjekti" -->
         <label for="subject">Subjekti</label>
-        <input type="text" id="subject" name="subject" placeholder="Për çfarë bëhet fjalë?">
+        <input type="text" id="subject" placeholder="Për çfarë bëhet fjalë?">
         <span class="error-msg" id="subjectError"></span>
       </div>
-      <div class="form-group">
+      <div class="form-group">                                                                                          <!-- wrapper i "Mesazhi" -->
         <label for="message">Mesazhi</label>
-        <textarea id="message" name="message" rows="5" placeholder="Na tregoni pak më shumë..."></textarea>
+        <textarea id="message" rows="5" placeholder="Na tregoni pak më shumë..."></textarea>                              <!-- rows="5" = lartësi fillestare -->
         <span class="error-msg" id="messageError"></span>
       </div>
-      <button type="submit" class="btn btn-primary">Dërgo mesazhin</button>
-      <p class="form-success" id="formSuccess">Faleminderit! Mesazhi u dërgua me sukses.</p>
-    </form>
-  </div>
-</section>
+      <button type="submit" class="btn btn-primary">Dërgo mesazhin</button>                                              <!-- type="submit" aktivizon event-in "submit" te JS -->
+      <p class="form-success" id="formSuccess">Faleminderit! Mesazhi u dërgua me sukses.</p>                               <!-- fshehur me CSS; JS shton "show" pas suksesit -->
+    </form>                                                                                                                  <!-- mbyllje e formularit -->
+  </div>                                                                                                                        <!-- mbyllje e contact-inner -->
+</section>                                                                                                                         <!-- mbyllje e seksionit contact -->
 
-<!-- =========================================================
-     FOOTER — informacion + linqe, statik
-========================================================== -->
-<footer class="footer">
-  <div class="container footer-inner">
-    <div>
-      <a href="#" class="logo">Pixelforge<span class="dot">.</span></a>
-      <p>Studio digjitale për brande që duan të dallohen.</p>
-    </div>
-
-    <div class="footer-links">
+<!-- FOOTER -->
+<footer class="footer">                                                        <!-- pjesa fundore, statike -->
+  <div class="container footer-inner">                                            <!-- CSS Grid 3 kolona -->
+    <div>                                                                            <!-- kolona 1: logo + përshkrim -->
+      <a href="#" class="logo">Pixelforge<span class="dot">.</span></a>                 <!-- logo, njëlloj si te navbar -->
+      <p>Studio digjitale për brande që duan të dallohen.</p>                             <!-- fjali e shkurtër -->
+    </div>                                                                                  <!-- mbyllje e kolonës 1 -->
+    <div class="footer-links">                                                                 <!-- kolona 2: linqet -->
       <h4>Navigimi</h4>
-      <a href="#home">Kryefaqja</a>
+      <a href="#home">Kryefaqja</a>                                                               <!-- të njëjtat linqe si navbar -->
       <a href="#services">Shërbimet</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#contact">Kontakt</a>
-    </div>
-
-    <div class="footer-social">
+    </div>                                                                                          <!-- mbyllje e footer-links -->
+    <div>                                                                                              <!-- kolona 3: social -->
       <h4>Na ndiqni</h4>
-      <div class="social-icons">
-        <a href="#" aria-label="Instagram">IG</a>
-        <a href="#" aria-label="LinkedIn">IN</a>
-        <a href="#" aria-label="Behance">BE</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2026 Pixelforge Studio. Të gjitha të drejtat e rezervuara.</p>
-  </div>
-</footer>
+      <div class="social-icons">                                                                          <!-- wrapper i 3 rrathëve -->
+        <a href="#">IG</a>                                                                                   <!-- shkurtim teksti, jo ikonë SVG -->
+        <a href="#">IN</a>
+        <a href="#">BE</a>
+      </div>                                                                                                    <!-- mbyllje e social-icons -->
+    </div>                                                                                                         <!-- mbyllje e kolonës 3 -->
+  </div>                                                                                                              <!-- mbyllje e footer-inner -->
+  <div class="footer-bottom">                                                                                          <!-- rreshti fundor -->
+    <p>&copy; 2026 Pixelforge Studio. Të gjitha të drejtat e rezervuara.</p>                                              <!-- &copy; = simboli © -->
+  </div>                                                                                                                     <!-- mbyllje e footer-bottom -->
+</footer>                                                                                                                       <!-- mbyllje e footer -->
 
-<!-- Butoni "kthehu lart" — i fshehur me CSS, shfaqet kur useri
-     bën scroll poshtë 500px (shiko initBackToTop në script.js) -->
-<button class="back-to-top" id="backToTop" aria-label="Kthehu lart">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-</button>
+<button class="back-to-top" id="backToTop" aria-label="Kthehu lart">↑</button>     <!-- id="backToTop" lexohet nga script.js; fshehur si default -->
 
-<!-- script.js vendoset në fund të <body> me qëllim: kështu browser-i
-     lexon dhe shfaq së pari HTML-në, dhe vetëm pastaj ekzekuton JS-në
-     që kërkon elementët (getElementById etj.) të ekzistojnë tashmë -->
-<script src="script.js"></script>
-</body>
-</html>
+<script src="script.js"></script>                                              <!-- ngarkon JS-në në fund, pasi HTML-ja tashmë ekziston -->
+</body>                                                                            <!-- mbyllje e body -->
+</html>                                                                              <!-- mbyllje e html -->
