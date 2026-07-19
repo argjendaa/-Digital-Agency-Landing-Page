@@ -1,384 +1,52 @@
-:root {
-  /* Ngjyrat kryesore */
-  --primary: #6366f1;       /* Indigo - ngjyra kryesore */
-  --primary-dark: #4f46e5;  /* Varianti i errët për hover */
-  --accent: #f59e0b;        /* Amber - ngjyra sekondare */
+/* ============================================================
+   PIXELFORGE — style.css 
+============================================================= */
 
-  /* Teksti - Light Mode */
-  --text: #111827;
-  --text-soft: #6b7280;
-  --text-light: #9ca3af;
-
-  /* Sfondet - Light Mode */
-  --bg: #ffffff;
-  --bg2: #f9fafb;
-  --bg3: #f3f4f6;
-
-  /* Kufiri */
-  --border: #e5e7eb;
-
-  /* Hija */
-  --shadow: 0 4px 20px rgba(0,0,0,0.08);
-  --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
-
-  /* Tranzicioni */
-  --tr: 0.3s ease;
-
-  /* Gjerësia maksimale */
-  --max-w: 1200px;
+:root {                                  /* :root = variabla globale, të përdorshme kudo në skedar */
+  --bg: #1b1b1e;                          /* sfondi kryesor i faqes */
+  --bg-alt: #27262a;                       /* sfond pak më i errët për seksione "alt" */
+  --surface: #3a3a3f;                       /* sfondi i kartave/navbar/formularit */
+  --text: #a7a7a7;                           /* ngjyra kryesore e tekstit */
+  --text-muted: #cbcbcf;                      /* gri për tekst dytësor */
+  --border: #370f873d;                           /* ngjyra e vijave/kufijve */
+  --accent: #6C5CE7;                            /* ngjyra kryesore e markës (vjollcë) */
+  --accent-dark: #5546D6;                        /* version më i errët, për hover të butonave */
+  --radius: 12px;                                 /* rrumbullakimi standard i qosheve */
 }
 
-/* ==============================
-   DARK MODE
-   Klasa vendoset në body nga JS
-   ============================== */
+* { 
+  margin: 0; padding: 0; box-sizing: border-box;  /* hiq hapësirat default; width/height përfshijnë padding+border */
+ }  
 
- body.dark {
-  --text: #f1f5f9;
-  --text-soft: #94a3b8;
-  --text-light: #64748b;
-  --bg: #0f172a;      /* Background kryesor - blu e errët */
-  --bg2: #1e293b;     /* Background dytësor */
-  --bg3: #334155;     /* Background tretësor */
-  --border: #334155;
-  --shadow: 0 4px 20px rgba(0,0,0,0.3);
-  --shadow-lg: 0 10px 40px rgba(0,0,0,0.4);
+html {
+  scroll-behavior: smooth; /* scroll i but kur klikohen linqe apo seksione*/
 }
 
-
-/* ==============================
-   RESET - Heq stilet default
-   ============================== */
-
-   *,*::before, *::after{
-    box-sizing:border-box; /* padding brenda*/
-    margin:0;
-    padding:0;
-   }
-
-
-
-   html{
-    scroll-behavior:smooth;/*scroll i bute per anchors*/
-   }
-
-   body{
-    font-family:'Segoe UI', Arial, sans-serif;
-    font-size:16px;
-    line-height:1.6;
-    color:var(--text);
-    background:var(--bg);
-    transition:background var(--tr), color var(--tr);
-    /*tranzicion kur ndryshon dark/light*/
-    overflow-x:hidden;/*pa scroll horizontal*/
-   }
-
-
-   a{
-    text-decoration:none;
-    color:inherit;/*trashegon ngjyren*/
-   }
-
-   ul{
-    list-style:none;/*pa pik liste*/
-   }
-
-   img{
-    max-width:100%; 
-    display:block;
-   }
-
-
-   /* ==============================
-   UTILITY CLASSES
-   ============================== */
-/*container kryesore*/
+body {
+  font-family: 'Inter', sans-serif; /*fonti i tekstit*/
+  background:var(--bg); 
+  color:var(--text);
+  line-height: 1.6;  /*hapsir mes rreshtave, qe  e ben teksin me te lexushem*/
+}
 
 .container{
-  width:1000px;
-  margin:0 auto;
-  padding: 0 24px;
+  max-width: 1140px;   /*gjersia max ne ekrane te medha*/
+  margin:0 auto;   /*hapsira lart-posht esht 0 ndersa majtas/djathtas esht auto*/
+  padding:0 24px;  /* hapsira anesore*/
 }
 
-/* seksionet -hapsire standarde*/
-section{
-  padding:80px;
-  max-width:var(--max-w);
-  margin:auto;
-  text-align:center;
-  
-}
-
-
-section h2{
-  font-size:2.2rem;
-  margin:8px 0 12px;
-  color:var(--text);
-}
-
-p {
-  color:var(--text-soft);
-  max-width:500px;
-  margin: 0 auto;
-}
-
-
-.label{
-  display:inline-block;
-  font-size:0.75rem;
-  font-weight:600;
-  letter-spacing:0.1rem;
-  text-transform:uppercase;
-  color:var(--primary);
-  background:rgba(99,102,241,0.1);
-  padding:4px 14px;
-  border-radius:999px;
-}
-
-
-.label.light{
-  color:rgba(255,255,255,0.8);
-  background:rgba(255,255,255,0.15);
-}
-  /*fjala r theksuar me ngjyre*/
-  .hightlight{
-    color:var(--primary);
-    position:relative;
-  }
-
-  /* ==============================
-   BUTONAT
-   ============================== */
-.btn-primary{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:12px 24px;
-  background:var(--primary);
-  color:white;
-  border:none;
-  border-radius:10px;
-  font-size:0.9rem;
-  font-weight:600;
-  cursor:pointer;
-  transition:all var(--tr);
-  text-decoration:none;
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
 
 }
 
-
-.btn-primary:hover{
-  background:var(--primary-dark);
-  transform:translateY(-2px);/*ngrihet lart per -2px*/
-  box-shadow:0 7px 8px rgba(99,102,241,0.35);
+h2{
+  font-size: 34px;
+  margin-bottom:36px;
 }
 
-
-.btn-ghost {
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding: 12px 24px;
-  background:transparent;
-  color:var(--primary);
-  border:2px solid var(--primary);
-  border-radius:10px;
-  font-size:0.9rem;
-  font-weight:600;
-  cursor:pointer;
-  transition:all var(--tr);
-  text-decoration:none;
-}
-
-.btn-ghost:hover{
-  background:var(--primary);
-  color:white;
-  transform:translateY(-2px);
-  box-shadow: 0 7px 8px rgba(99,102,241,0.35);
-}
-
-/* ==============================
-   NAVBAR
-   ============================== */
-.navbar{
-  position:fixed;/*fiksohet lard edhe nese shkon scroll posht*/
-  top:0;
-  left:0;
-  right:0;
-  z-index:1000;
-  height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 40px;
-  background:rgba(255,255,255,0.9);
-  backdrop-filter:blur(10px);/*Efekti frosted glass*/
-  border-bottom: 1px solid var(--border);
-  transition:all var(--tr);
-}
-
-/*dark mode navbar*/
-
-body.dark.navbar {
-  background:rgba(15,23,42,0.9);
-}
- 
-
-/* Navbar kur scrollon (JS shton klasën) */
-.navbar.scrolled{
-  box-shadow:var(--shadow);
-}
-
-/*logo*/
-.nav-logo{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  font-size:1.2rem;
-  font-weight:700;
-  color:var(--text);
-}
-
-.nav-logo i{
-  color:var(--primary);
-  font-size:1.3rem;
-}
-
-/* Linket e navigimit */
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:4px;
-}
-
-.nav-links a{
- padding:6px 14px;
- border-radius:8px;
- color:var(--text-soft);
- font-size:0,9rem;
- font-weight:500;
- transition:all var(--tr);
-}
-
-.nav-links a:hover{
-  color: var(--primary);
-  background: rgba(99,102,241,0.08);
-}
-
-/* Ana e djathtë e navbar-it */
-.nav-right{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-/* Butoni dark mode */
-#darkbtn{
-  width:38px;
-  height:38px;
-  border-radius:8px;
-  background: var(--bg3);
-  border:1px solid var(--border);
-  color:var(--text-soft);
-  font-size:0.9rem;
-  cursor:poiner;
-  transition:all var(--tr);
-}
-
-#darkBtn:hover {
-  background:var(--primary);
-  color:white;
-  border-color:var(--primary);
-}
-
-/* Hamburger - vetëm mobile */
-.hamburger{
-  display:none;
-  flex-direction: column;
-  gap:5px;
-  width:36px;
-  height:36px;
-  align-items:center;
-  justify-content:center;
-  background:var(--bg3);
-  border:1px solid var(--border);
-  border-radius:8px;
-  cursor:pointer;
-}
-
-.hamburger span{
-  display: block;
-  width:18px;
-  height: 2px;
-  background: var(--text);
-  border-radius: 2px;
-  transition:all var(--tr);
-}
-
-/* Animacioni X kur menuja hapet */
-.hamburger.open span:nth-child(1){
-  transform:translateY(7px) rotate(45deg);
-}
-
-.hamburger.open span:nth-child(2){
-  opacity:0;/*fshihet linja e mesit*/
-}
-
-.hamburger.open span:nth-child(3){
-  transform:translateY(-7px)rotate(-45deg);
-}
-
-
-/* ==============================
-   HERO SECTION
-   ============================== */
-.hero{
-  min-height:100vh;
-  padding-top:120px;
-  display:flex;
-  align-items:center;
-  gap:60px;
-  max-width:var(--max-w);
-  margin:0 auto;
-  padding-left:0 24px 0 24px;
-  padding-bottom:60px;
-  
-}
-
-.hero-text{
-  flex:1;
-}
-
-.hero-text h1{
-  font-size:3rem;
-  line-height:1.15;
-  margin-bottom:16px;
-  color:var(--text);
-}
-
-.hero-text p{
-  font-size:1.1rem;
-  color:var(--text-soft);
-  margin-bottom:32px;
-  max-width:460px;
-}
-
-.hero-btns{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;/* Kalon në rresht tjetër në mobile */
-}
-
-
-/*ilustrimi i djatht*/
-.hero-image{
-  flex:1;
-  max-width:480px;
-  animation:foat 4s ease-in-out infinite;
-
-}
-
-@keyframes float{
-  0%, 100%{transform:translateY(0);}
-  50%{transform:translateY(-15px);}
+h3{
+  font-size:20px;
+  margin-bottom:8px;
 }
