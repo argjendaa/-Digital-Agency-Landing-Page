@@ -1,7 +1,9 @@
 <!DOCTYPE html>                                            <!-- i thotë browser-it që kjo është HTML5 -->
-<html lang="sq">                                            <!-- gjuha e faqes = shqip -->
+<html lang="en">                                            <!-- gjuha e faqes = anglisht -->
 <head>                                                       <!-- pjesa e padukshme: metadata, fonte, CSS -->
-<meta charset="UTF-8">                                        <!-- lejon shkronjat ë, ç të shfaqen saktë -->
+<meta charset="UTF-8"> 
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https:; frame-ancestors 'self';">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">                                       <!-- lejon shkronjat ë, ç të shfaqen saktë -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- e bën faqen responsive në telefon -->
 <title>Pixelforge — Agjenci Digjitale</title>                    <!-- titulli në tab-in e browser-it -->
 <link rel="preconnect" href="https://fonts.googleapis.com">        <!-- lidhet më shpejt me Google Fonts -->
@@ -161,7 +163,9 @@
           <h3>Lumen Identity</h3>
           <p>Identitet i plotë vizual — logo, paletë ngjyrash dhe udhëzime marke.</p>
         </div>
-      </div>                                                                                                       <!-- mbyllje e kartës 4 -->
+      </div>                                
+      <!--Terra Coffee Rebrand-->   
+      <!-- <p>Rebranding i plotë për një zinxhir kafenesh lokale.</p>-->                                                                    <!-- mbyllje e kartës 4 -->
 
       <div class="portfolio-card" data-category="app">                                            <!-- karta 5 -->
         <div class="portfolio-thumb thumb-5">Orbit Finance</div>
@@ -172,17 +176,20 @@
         </div>
       </div>                                                                                                       <!-- mbyllje e kartës 5 -->
 
-      <div class="portfolio-card" data-category="branding">                                       <!-- karta 6 -->
+   
+      <div class="portfolio-card" data-category="branding">                                            <!-- karta 5 -->
         <div class="portfolio-thumb thumb-6">Terra Coffee Rebrand</div>
         <div class="portfolio-body">
-          <span class="portfolio-tag">branding</span>
+          <span class="portfolio-tag">abrending</span>
           <h3>Terra Coffee Rebrand</h3>
-          <p>Rebranding i plotë për një zinxhir kafenesh lokale.</p>
+          <p>Rebranding i plotë për një zinxhir kafenesh dhe restaurante lokale.</p>
         </div>
-      </div>                                                                                                       <!-- mbyllje e kartës 6 -->
+      </div>                                                                                                       <!-- mbyllje e kartës 5 -->
 
-    </div>                                                                                                            <!-- mbyllje e portfolio-grid -->
+    </div>
   </div>
+
+   
 </section>                                                                                                                <!-- mbyllje e seksionit portfolio -->
 
 <!-- TESTIMONIALE — statike, s'ka nevojë për JS fare -->
@@ -215,7 +222,7 @@
       </div>                                                                                     <!-- mbyllje e testimonialit 2 -->
 
       <div class="testimonial-card">                                                <!-- testimoniali 3 -->
-        <p>"Ekipi e ktheu idenë tonë të thjeshtë në një aplikacion që klientët tanë e duan çdo ditë."</p>
+        <p>"Ekipi e ktheu idenë tonë të thjeshtë në një aplikacion që klientët tanë e duan dhe e besojnë çdo ditë."</p>
         <div class="testimonial-author">
           <div class="avatar">D</div>
           <div>
